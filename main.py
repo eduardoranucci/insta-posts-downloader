@@ -13,9 +13,12 @@ insta.login(user, password)
 
 posts = instaloader.Profile.from_username(insta.context, target_user).get_posts()
 
-SINCE = datetime(2021, 9, 1).replace(tzinfo=utc)
-UNTIL = datetime(2021, 9, 30).replace(tzinfo=utc)
+#SINCE = datetime(2021, 9, 1).replace(tzinfo=utc)
+#UNTIL = datetime(2021, 9, 30).replace(tzinfo=utc)
+
+#for post in posts:
+#    if (post.date >= SINCE) and (post.date <= UNTIL):
+#        insta.download_post(post, f'{target_user}')
 
 for post in posts:
-    if (post.date >= SINCE) and (post.date <= UNTIL):
-        insta.download_post(post, f'{target_user}')
+    insta.download_post(post, target_user)
